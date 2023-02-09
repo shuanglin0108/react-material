@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vite + Vue + TS</title>
+    <script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+  </head>
+  <script>
+    // 变量增强
+    var globalVar = 'globalVar变量'
+    var globalObj = {
+      name: '小明',
+      age: 29
+    }
+    function fn(str) {
+      console.log("执行了fn函数！", str);
+    }
+  </script>
+  <body>
+    <div id="app" class="app"></div>
+    <script type="module" src="/src/main.ts"></script>
+  </body>
+</html>
