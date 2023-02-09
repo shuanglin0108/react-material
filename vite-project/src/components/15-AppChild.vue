@@ -19,9 +19,9 @@
 
 <script lang='ts' setup>
 // 可以tsconfig.json全局配置接口 ，也可以直接引用
-import { UserType } from '../../types/table'
+import { UserType } from '#/table'
 import { } from 'vue';
-let props = defineProps({
+let props = defineProps({    
   arr: {
     type: Array,
     default: []

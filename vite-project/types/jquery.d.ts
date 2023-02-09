@@ -1,9 +1,9 @@
 // 针对第三方库ts的类型声明的方法
-// declare function $(n:string):any
+declare function $(n:string):any
 
-// declare namespace ${
-//   function ajax(): void
-// }
+declare namespace ${
+  function ajax(): void
+}
 
 
 // npm i --save-dev @type/jquery
