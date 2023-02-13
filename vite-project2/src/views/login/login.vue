@@ -16,6 +16,8 @@
 import { reactive, toRefs, ref } from 'vue';
 import { adminLoginApi, getAdminInfoApi } from '../../request/api'
 import Cookie from 'js-cookie'
+import { useRouter } from 'vue-router'
+import { useStore } from 'vuex'
 
 const state = reactive({
   ruleForm: {
@@ -28,6 +30,12 @@ let { ruleForm } = toRefs(state)
 
 // 获取el-form组件对象
 let ruleFormRef = ref()
+
+// 获取项目路由对象
+let router = useRouter()
+
+// 获取当前项目vuex对象
+let store = useStore()
 
 const validatePwd = (rule: unknown, value: string | undefined, callback: (msg?: string) => void) => {
   if (!value) {
@@ -60,11 +68,20 @@ const loginFn = () => {
         // document.cookie 操作起来很麻烦
         // js-cookie 封装的
         Cookie.set('token', res.data.tokenHead + res.data.token, { expires: 7 })
-        getAdminInfoApi().then(res1 => {
-          if (res1.code === 200) {
-            res.data.menus
-          }
+        // 获取用户信息
+        store.dispatch('getAdminInfo').then(res => {
+          router.push('./homepage')
         })
+        // getAdminInfoApi().then(res => {
+        //   if (res.code === 200) {
+        //     // 存储到vuex
+        //     // res1.data.menus
+        //     store.commit('updateMenus', res.data.menus)
+
+        //     // 跳转homepage页面
+        //     router.push('/homepage')
+        //   }
+        // })
       }
     })
     
