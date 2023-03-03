@@ -22,7 +22,7 @@ instance.interceptors.request.use(config => {
 })
 
 instance.interceptors.response.use(result => {
-  return result.data
+  return result.data  
 }, err => {
   return Promise.reject(err)
 })
